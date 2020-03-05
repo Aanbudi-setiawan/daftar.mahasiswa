@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head> <meta charset="utf-8"/>
+    <title>Daftar Mahasiswa</title>
+</head>
+<body>
+<div align="center">
+    <h1>Daftar Mahasiswa</h1>
+    <a href="/baru">Tamhabkan Data Mahasiswa</a>
+    <br/><br/>
+    <table border="0" cellpadding="25">
+        <thead>
+        <tr align="center">
+            <th>Nim</th>
+            <th>Nama</th>
+            <th>Jurusan</th>
+            <th>Fakultas</th>
+            <th>Tahun Masuk</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr align="center" th:each="mahasiswa : ${daftarMahasiswa}">
+            <td th:text="${mahasiswa.nim}"></td>
+            <td th:text="${mahasiswa.nama}"></td>
+            <td th:text="${mahasiswa.jurusan}"></td>
+            <td th:text="${mahasiswa.fakultas}"></td>
+            <td th:text="${mahasiswa.tahunMasuk}"></td>
+            <td>
+                <a th:href="@{'/edit/'+${mahasiswa.id}}">Edit</a>
+
+                <a th:href="@{'/delete/'+${mahasiswa.id}}">Hapus</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
